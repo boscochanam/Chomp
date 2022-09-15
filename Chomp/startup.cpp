@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-
+#include <vector>
 #include "datastuff.cpp"
 #include "login.cpp"
 using namespace std;
@@ -11,18 +11,18 @@ int main()
 	
 	cout << "\n|========================================================|\n|\t\t\t\t\t\t\t |\n|\t\t\tMenu\t\t\t\t |\n|\t\t\t\t\t\t\t |\n|========================================================|\n";
 	
-	User user1;
-	user1.new_user_read();
+	//User user1;
+	//user1.new_user_read();
 	
-	Food Cheese("Cheese", 300, 5);
+	//Food Cheese("Cheese", 300, 5);
 	//Cheese.info();
 
-	Drink Pepsi("Pepsi", 300, 5);
+	//Drink Pepsi("Pepsi", 300, 5);
 	//Pepsi.info();
-	Pepsi.info();
+	//Pepsi.info();
 
 	read_csv();
-
+	show_data();
 
 
 	return 0;

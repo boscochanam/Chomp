@@ -4,8 +4,12 @@
 #include <vector>
 #include <sstream>
 #include "menu.cpp"
+#include <algorithm>
+
 using namespace std;
 
+static vector<Food> food_items;
+static vector<Drink> drink_items;
 
 static void read_csv()
 {
@@ -34,8 +38,8 @@ static void read_csv()
 
 	string food = "Food";
 	
-	vector<Food> food_items;
-	vector<Drink> drink_items;
+	//vector<Food> food_items;
+	//vector<Drink> drink_items;
 
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -53,5 +57,10 @@ static void read_csv()
 		cout << "\n";
 	}
 
+}
 
+static void show_data()
+{
+	food_items[0].info();
+	drink_items[0].info();
 }
