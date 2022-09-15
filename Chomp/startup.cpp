@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 #include "datastuff.cpp"
-#include "menu.cpp"
 #include "login.cpp"
 using namespace std;
 
@@ -16,12 +15,15 @@ int main()
 	user1.new_user_read();
 	
 	Food Cheese("Cheese", 300, 5);
-	Cheese.info();
+	//Cheese.info();
 
 	Drink Pepsi("Pepsi", 300, 5);
+	//Pepsi.info();
 	Pepsi.info();
 
 	read_csv();
+
+
 
 	return 0;
 }

@@ -11,7 +11,6 @@ class Item
 		int stock;
 
 	public:
-
 		Item()
 		{
 			name = "unknown";
@@ -38,6 +37,13 @@ class Food : private Item
 {
 	public:
 
+		Food()
+		{
+			name = "";
+			price = 0.0;
+			stock = 0;
+		}
+
 		Food(string n, float p, int st)
 		{
 			name = n;
@@ -59,12 +65,11 @@ class Drink : private Item
 
 	public:
 
-		Drink(string n, float p, int st, int vol = 0)
+		Drink(string n, float p, int st)
 		{
 			name = n;
 			price = p;
 			stock = st;
-			volume = volume;
 		}
 
 		void info()
