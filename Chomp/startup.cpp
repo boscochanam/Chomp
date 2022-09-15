@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 
+#include "datastuff.cpp"
 #include "menu.cpp"
 #include "login.cpp"
 using namespace std;
@@ -19,6 +20,8 @@ int main()
 
 	Drink Pepsi("Pepsi", 300, 5);
 	Pepsi.info();
+
+	read_csv();
 
 	return 0;
 }

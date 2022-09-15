@@ -1,32 +1,42 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <vector>
 #include <sstream>
 
 using namespace std;
 
-void read_csv()
+static void read_csv()
+{
+
+	vector<vector<string>> data;									// Creates an array for data
+	vector<string> row;												// Internal row for array
+	string line, word;												// Stores line and data points temporarily
+
+	fstream file("menudata.csv", ios::in);							// Reads menudata.csv into fstream
+
+	if (file.is_open())
+	{
+		while (getline(file, line))
 		{
-			fstream fin;
-			fin.open("yum.csv",ios::in);
-			
-			vector<string> data;
-			string line, word, temp;
-			
-			while (fin >> temp) 
-			{
-		        data.clear();			// read an entire row and
-		        getline(fin, line);		// store it in a string variable 'line'
-		        stringstream s(line); 	// used for breaking words
-		        
-		        
-		        
-	        while (getline(s, word, ', ')) 	// read every column data of a row and
-	        							  	// store it in a string variable, 'word'
-			{
-								            // add all the column data
-								            // of a row to a vector
-	            data.push_back(word);
-	        }
-	        
-	        
+			row.clear();
+
+			stringstream str(line);
+
+			while (getline(str, word, ','))
+				row.push_back(word);
+			data.push_back(row);
 		}
+	}
+	else
+		cout << "Error: File cannot be opened.\n";
+
+	for (int i = 0; i < data.size(); i++)
+	{
+		for (int j = 0; j < data[i].size(); j++)
+		{
+			cout << data[i][j] << " ";
+		}
+		cout << "\n";
+	}
+}

@@ -24,6 +24,9 @@
     <ClCompile Include="startup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="datastuff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="menudata.csv" />
