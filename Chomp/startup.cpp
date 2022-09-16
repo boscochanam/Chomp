@@ -3,6 +3,7 @@
 #include <vector>
 #include "datastuff.cpp"
 #include "login.cpp"
+#include "userlogin.cpp"
 using namespace std;
 
 int main()
@@ -21,8 +22,15 @@ int main()
 	//Pepsi.info();
 	//Pepsi.info();
 
-	read_csv();
-	show_data();
+	//read_csv();
+	//show_data();
+
+	read_login();
+	//user_data();
+	if (login_check() == 1)
+		cout << "Welcome !";
+	else
+		cout << " NAH BRO";
 
 
 	return 0;

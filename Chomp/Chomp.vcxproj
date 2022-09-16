@@ -131,9 +131,12 @@
     <ClCompile Include="login.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="startup.cpp" />
+    <ClCompile Include="userclass.cpp" />
+    <ClCompile Include="userlogin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="menudata.csv" />
+    <None Include="userdata.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,8 +27,15 @@
     <ClCompile Include="datastuff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="userlogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="userclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="menudata.csv" />
+    <None Include="userdata.csv" />
   </ItemGroup>
 </Project>

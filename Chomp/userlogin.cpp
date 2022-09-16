@@ -3,20 +3,20 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "menu.cpp"
 #include <algorithm>
+#include "userclass.cpp"
 
 using namespace std;
 
-static vector<Food> food_items;
-static vector<Drink> drink_items;
+static vector<UserData> UserList;
+static vector<vector<string>> data2;
 
-static void read_csv()
+static void read_login()
 {
 	vector<vector<string>> data;									// Creates an array for data
 	vector<string> row;												// Internal row for array
 	string line, word;												// Stores line and data points temporaril
-	fstream file("menudata.csv", ios::in);							// Reads menudata.csv into fstream
+	fstream file("userdata.csv", ios::in);							// Reads menudata.csv into fstream
 
 	if (file.is_open())												// Checks if file is open, else returns error message
 	{
@@ -34,29 +34,40 @@ static void read_csv()
 	else
 		cout << "Error: File cannot be opened.\n";
 
-	string food = "Food";
-	
-
 	for (int i = 0; i < data.size(); i++)
 	{
-		if (data[i][0] == food)
-		{
-			Food fooditem(data[i][1], stof(data[i][2]), stod(data[i][3]));
-			food_items.push_back(fooditem);
-		}
-		else
-		{
-			Drink drinkitem(data[i][1], stof(data[i][2]), stod(data[i][3]));
-			drink_items.push_back(drinkitem);
-		}
-		
+		UserData newuser(data[i][0], data[i][1]);
+		UserList.push_back(newuser);
+
 		cout << "\n";
 	}
 
+	data2 = data;
 }
 
-static void show_data()
+static void user_data()
 {
-	food_items[0].info();
-	drink_items[0].info();
+	UserList[0].details();
+	UserList[1].details();
+}
+
+static int login_check()
+{
+	string name;
+	cout << "Please enter your username: " << endl;
+	cin >> name;
+	string password;
+	cout << "Please enter your password: " << endl;
+	cin >> password;
+	
+	int flag = 0;;
+	for (int i = 0; i < data2.size(); i++)
+	{
+		if (name == data2[i][0] and password == data2[i][1])
+			flag = 1;
+	}
+	if (flag == 1)
+		return 1;
+	else
+		return 0;
 }
