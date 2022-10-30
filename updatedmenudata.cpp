@@ -41,7 +41,7 @@ public:
 
 };
 
-static vector<MenuData> menu;
+static vector<UserData> menu;
 
 static void menuInfo(int count)
 {
@@ -74,7 +74,7 @@ static void readMenuData()
         getline(inputString, p, ',');
 
         MenuData m(t, n, qt, p);
-        menu.push_back(m);
+        users.push_back(m);
         line = "";
         count++;
     }

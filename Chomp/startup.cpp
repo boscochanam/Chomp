@@ -4,6 +4,7 @@
 #include "datastuff.cpp"
 #include "login.cpp"
 #include "userlogin.cpp"
+//#include "updatedmenudata.cpp"
 using namespace std;
 
 int main()
@@ -24,6 +25,9 @@ int main()
 
 	//read_csv();
 	//show_data();
+
+	readMenuData();
+	menuInfo(2);
 
 	readUserData();
 
