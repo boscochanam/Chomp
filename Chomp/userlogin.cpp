@@ -31,6 +31,21 @@ public:
         cout << endl;
     }
 
+    string username()
+    {
+        return un;
+    }
+
+    string password()
+    {
+        return pw;
+    }
+
+    string balance()
+    {
+        return bal;
+    }
+
     string un;
     string pw;
     string bal;
@@ -48,8 +63,26 @@ static void userInfo(int count)
     }
 }
 
-
-
+static int loginVerification(int count, string username, string password)
+{
+    int flag = 0;
+    for (int i = 0; i < count; i++)
+    {
+        if (username == users[i].username() && password == users[i].password())
+        {
+            flag = 1;
+            cout << "Welcome " << users[i].username() << endl;
+            cout << "Balance: $" << users[i].balance() << endl;
+            return 1;
+        }
+        
+    }
+    if (flag == 0)
+    {
+        cout << "Invalid Credentials" << endl;
+        return 0;
+    }
+}
 
 static void readUserData()
 {
@@ -76,6 +109,6 @@ static void readUserData()
         count++;
     }
 
-    userInfo(count);
+    //userInfo(count);
 
 }

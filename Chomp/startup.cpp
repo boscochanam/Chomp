@@ -27,6 +27,22 @@ int main()
 
 	readUserData();
 
+	string username;
+	string password;
+	int verification = 0;
+
+	while (verification == 0)
+	{
+		cout << "Enter Username: " << endl;
+		cin >> username;
+
+		cout << "Enter Password: " << endl;
+		cin >> password;
+
+		verification = loginVerification(3, username, password);
+		cout << endl;
+	}
+	
 
 	return 0;
 }
