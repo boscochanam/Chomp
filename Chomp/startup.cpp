@@ -29,20 +29,67 @@ int main()
 
 	string username;
 	string password;
-	int verification = 0;
+	string balance;
 
-	while (verification == 0)
+	cout << "Would you like to: " << endl << "1. Login" << endl << "2. Register" << endl;
+
+	int operation = 0;
+
+	cin >> operation;
+	
+	while (1==1)
 	{
-		cout << "Enter Username: " << endl;
-		cin >> username;
+		if (operation == 1)
+		{
+			while (operation == 1)
+			{
+				cout << endl << "Login Menu:" << endl;
 
-		cout << "Enter Password: " << endl;
-		cin >> password;
+				cout << "type 'register' to go to registration" << endl;
 
-		verification = loginVerification(3, username, password);
-		cout << endl;
+				cout << "Enter Username: " << endl;
+				cin >> username;
+
+				if (username == "register")
+				{
+					operation = 2;
+					continue;
+				}
+
+				cout << "Enter Password: " << endl;
+				cin >> password;
+
+				operation = loginVerification(3, username, password);
+				operation;
+				cout << endl;
+			}
+			if (operation != 2)
+			{
+				break;
+			}
+			
+		}
+		else if (operation == 2)
+		{
+			cout << endl << "Registration Menu:" << endl;
+			cout << "Enter New Username: " << endl;
+			cin >> username;
+
+			cout << "Enter New Password: " << endl;
+			cin >> password;
+
+			cout << "Enter Your Balance: " << endl;
+			cin >> balance;
+
+			registration(username,password,balance);
+			cout << "Registered Successfuly" << endl;
+
+			break;
+		}
 	}
 	
+	
+
 
 	return 0;
 }

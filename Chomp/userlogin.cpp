@@ -73,14 +73,14 @@ static int loginVerification(int count, string username, string password)
             flag = 1;
             cout << "Welcome " << users[i].username() << endl;
             cout << "Balance: $" << users[i].balance() << endl;
-            return 1;
+            return 0;
         }
         
     }
     if (flag == 0)
     {
         cout << "Invalid Credentials" << endl;
-        return 0;
+        return 1;
     }
 }
 
@@ -112,3 +112,24 @@ static void readUserData()
     //userInfo(count);
 
 }
+
+// Registration
+
+static bool writeToFile(string file_name, string field_one, string field_two, string field_three);
+
+static void registration(string username, string password, string balance)
+{
+    bool registeruser = writeToFile("userdata.csv", username, password, balance);
+
+}
+
+static bool writeToFile(string file_name, string field_one, string field_two, string field_three)
+{
+    ofstream file;
+    file.open(file_name, ios_base::app); // If we don't include ios_base we will overwrite existing file
+    file << field_one << "," << field_two << "," << field_three << endl;
+    file.close();
+
+    return true;
+}
+
