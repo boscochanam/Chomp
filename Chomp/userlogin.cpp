@@ -1,73 +1,81 @@
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <vector>
+#include <fstream>
 #include <sstream>
-#include <algorithm>
-#include "userclass.cpp"
+#include <vector>
+#include <stdlib.h>
 
 using namespace std;
 
-static vector<UserData> UserList;
-static vector<vector<string>> data2;
-
-static void read_login()
+static struct UserData
 {
-	vector<vector<string>> data;									// Creates an array for data
-	vector<string> row;												// Internal row for array
-	string line, word;												// Stores line and data points temporaril
-	fstream file("userdata.csv", ios::in);							// Reads menudata.csv into fstream
+public:
+    UserData
+    (
+        string username,
+        string password,
+        string balance
+    )
 
-	if (file.is_open())												// Checks if file is open, else returns error message
-	{
-		while (getline(file, line))									// Looping through all the lines in file
-		{
-			row.clear();											// Erases the contents of row
+    {
+        un = username;
+        pw = password;
+        bal = balance;
+    }
 
-			stringstream str(line);                                 // Allows us to read from line into str as if it were like cin
+    void display()
+    {
+        cout << "Username: " << un << endl;
+        cout << "Password: " << pw << endl;
+        cout << "Balance:  $" << bal << endl;
+        cout << endl;
+    }
 
-			while (getline(str, word, ','))                         // Separates data using comma separation
-				row.push_back(word);								// Adds a new element "word" to the end of vector row
-			data.push_back(row);									// Adds a new element "row" to the end of vector data
-		}
-	}
-	else
-		cout << "Error: File cannot be opened.\n";
+    string un;
+    string pw;
+    string bal;
 
-	for (int i = 0; i < data.size(); i++)
-	{
-		UserData newuser(data[i][0], data[i][1]);
-		UserList.push_back(newuser);
+};
 
-		cout << "\n";
-	}
+static vector<UserData> users;
 
-	data2 = data;
+static void userInfo(int count)
+{
+    for (int i = 0; i < count; i++)
+    {
+        cout << endl;
+        users[i].display();
+    }
 }
 
-static void user_data()
-{
-	UserList[0].details();
-	UserList[1].details();
-}
 
-static int login_check()
+
+
+static void readUserData()
 {
-	string name;
-	cout << "Please enter your username: " << endl;
-	cin >> name;
-	string password;
-	cout << "Please enter your password: " << endl;
-	cin >> password;
-	
-	int flag = 0;;
-	for (int i = 0; i < data2.size(); i++)
-	{
-		if (name == data2[i][0] and password == data2[i][1])
-			flag = 1;
-	}
-	if (flag == 1)
-		return 1;
-	else
-		return 0;
+    ifstream inputFile;
+    inputFile.open("userdata.csv");
+    string line = "";
+    int count = 0;
+
+    while (getline(inputFile, line)) {
+
+        stringstream inputString(line);
+
+        string username;
+        string password;
+        string balance;
+
+        getline(inputString, username, ',');
+        getline(inputString, password, ',');
+        getline(inputString, balance, ',');
+
+        UserData u(username, password, balance);
+        users.push_back(u);
+        line = "";
+        count++;
+    }
+
+    userInfo(count);
+
 }

@@ -8,6 +8,7 @@ class UserData
 	protected:
 		string username;
 		string password;
+		string balance;
 
 	public:
 
@@ -17,10 +18,11 @@ class UserData
 			password = "";
 		}
 
-		UserData(string u, string p)
+		UserData(string u, string p, string b)
 		{
 			username = u;
 			password = p;
+			balance = b;
 		}
 
 		int login(string u, string p)

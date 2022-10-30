@@ -25,12 +25,7 @@ int main()
 	//read_csv();
 	//show_data();
 
-	read_login();
-	//user_data();
-	if (login_check() == 1)
-		cout << "Welcome !";
-	else
-		cout << " NAH BRO";
+	readUserData();
 
 
 	return 0;
