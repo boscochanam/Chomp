@@ -92,8 +92,24 @@ int main()
 			}
 			
 
-			cout << "Enter New Password: " << endl;
-			cin >> password;
+			while (true)
+			{
+				cout << "Enter New Password: " << endl;
+				cin >> password;;
+
+				if (password.size() >= 6)
+				{
+					break;
+				}
+				else
+				{
+					cout << "Password too short!" << endl;
+				}
+			}
+
+
+			
+			
 
 			cout << "Enter Your Balance: " << endl;
 			cin >> balance;
@@ -238,10 +254,23 @@ int main()
 			cout << "Invalid Response";
 		}
 	}
+	string phoneno = "";
 
-	
-	
-	
+	while (true)
+	{
+		cout << "Enter phone number: " << endl;
+		cin >> phoneno;
+
+		if (phoneno.size() == 10)
+		{
+			cout << "Phone number accepted!" << endl;
+			break;
+		}
+		else
+		{
+			cout << "Invalid phone number!" << endl;
+		}
+	}
 
 	return 0;
 }
