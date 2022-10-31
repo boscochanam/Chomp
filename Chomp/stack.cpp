@@ -8,17 +8,17 @@ using namespace std;
 static struct Stack
 {
 	string stck[MAX];
+	float prices[MAX];
 	int top;
-}cart,prices;
+}cart;
 
 
 static void push(string item, float price)
 {
 	cout << "Added: " << item << " to Cart! ($" << price << ") " << endl;
 	cart.top++;
-	prices.top++;
 	cart.stck[cart.top] = item;
-	prices.stck[prices.top] = price;
+	cart.prices[cart.top] = price;
 }
 
 static int isEmpty()
@@ -40,7 +40,6 @@ static void pop()
 	{
 		cout << "Removed: " << cart.stck[cart.top] << " from Cart!" << endl;
 		cart.top--;
-		prices.top--;
 	}
 	else
 	{
@@ -54,9 +53,8 @@ static void show()
 	cout << endl << "Your Cart: " << endl;
 	for (int i = 0; i < cart.top + 1; i++)
 	{
-		cout << i + 1;
-		cout << " " << cart.stck[i] << "  |  " << prices.stck[i] << endl;
+		cout << "Item " << i + 1;
+		cout << " " << cart.stck[i] << "  |  $" << cart.prices[i] << endl;
 	}
 	cout << endl;
 }
-

@@ -120,7 +120,6 @@ int main()
 	int ordering = 1;
 	int option = 0;
 	cart.top = -1;
-	prices.top = -1;
 	string addtocart;
 	int incart = 0;
 	float cartprice = 0;
