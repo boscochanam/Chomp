@@ -12,10 +12,11 @@ static struct MenuData
 public:
     MenuData
     (
-        string type,
+        int type,
         string name,
+        string price,
         string quantity,
-        string price
+        string attrib
     )
 
     {
@@ -23,6 +24,7 @@ public:
         n = name;
         qt = quantity;
         p = price;
+        at = attrib;
     }
 
     void display()
@@ -34,11 +36,36 @@ public:
         cout << endl;
     }
 
-    string t;
+    int t;
     string n;
     string qt;
     string p;
+    string at;
 
+    int type()
+    {
+        return t;
+    }
+    
+    string name()
+    {
+        return n;
+    }
+
+    int quantity()
+    {
+        return stoi(qt);
+    }
+
+    float price()
+    {
+        return stof(p);
+    }
+
+    int attribute()
+    {
+        return stoi(at);
+    }
 };
 
 static vector<MenuData> menu;
@@ -67,18 +94,18 @@ static void readMenuData()
         string n;
         string qt;
         string p;
+        string atr;
 
         getline(inputString, t, ',');
         getline(inputString, n, ',');
-        getline(inputString, qt, ',');
         getline(inputString, p, ',');
+        getline(inputString, qt, ',');
+        getline(inputString, atr, ',');
 
-        MenuData m(t, n, qt, p);
+        MenuData m(stoi(t), n, p, qt, atr);
         menu.push_back(m);
         line = "";
         count++;
     }
-
     //userInfo(count);
-
 }

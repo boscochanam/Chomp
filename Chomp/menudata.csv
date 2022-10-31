@@ -1,2 +1,10 @@
-Food,Cheese,10,5
-Drink,Pepsi,2,50
+0,Pizza,10,5,500
+0,Cake,20,3,500
+0,Sandwich,5,0,150
+0,Salad,5,10,100
+0,Fries,5,0,50
+0,Taco,10,1,80
+0,Hot Dog,3,2,200
+1,Pepsi,5,10,250
+1,Water,1,10,250
+1,Coffee,10,5,150

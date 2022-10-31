@@ -5,77 +5,124 @@ using namespace std;
 
 class Item
 {
-	protected:
-		string name;
-		float price;
-		int stock;
+    static int count;
+    
+protected:
+    string name;
+    float price;
+    int stock;
 
-	public:
-		Item()
-		{
-			name = "unknown";
-			price = 0;
-			stock = 0;
-		}
+public:
 
-		Item(string n, float p, int st)
-		{
-			name = n;
-			price = p;
-			stock = st;
-		}
+    
 
-		void info()
-		{
-			cout << "Item: " << name << endl;
-			cout << "Price: $" << price << endl;
-			cout << "Stock: " << stock << endl;
-		}
+    Item()
+    {
+        name = "unknown";
+        price = 0;
+        stock = 0;
+    }
+
+    Item(string n, float p, int st)
+    {
+        name = n;
+        price = p;
+        stock = st;
+    }
+
+    virtual void info()
+    {
+        cout << "Item: " << name << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Stock: " << stock << endl;
+    }
+
+
 };
 
-class Food : private Item
+class Food : public Item
 {
-	public:
 
-		Food()
-		{
-			name = "";
-			price = 0.0;
-			stock = 0;
-		}
+private:
+    int weight;
 
-		Food(string n, float p, int st)
-		{
-			name = n;
-			price = p;
-			stock = st;
-		}
+public:
 
-		void info()
-		{
-			cout << "Item: " << name << endl;
-			cout << "Price: $" << price << endl;
-			cout << "Stock: " << stock << endl;
-		}
+    
+
+    Food()
+    {
+        name = "";
+        price = 0.0;
+        stock = 0;
+        weight = 0;
+    }
+
+    Food(string n, float p, int st, int wt)
+    {
+        name = n;
+        price = p;
+        stock = st;
+        weight = wt;
+    }
+
+    void fillinf(string n, float p, int st, int wt)
+    {
+        name = n;
+        price = p;
+        stock = st;
+        weight = wt;
+    }
+
+    virtual void info() const
+    {
+        cout << endl;
+        cout << "Item: " << name << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Stock: " << stock << endl;
+        cout << "Weight: " << weight << endl;
+    }
 };
 
-class Drink : private Item
+class Drink : public Item
 {
-	int volume;
+private:
+    int volume;
 
-	public:
+public:
 
-		Drink(string n, float p, int st)
-		{
-			name = n;
-			price = p;
-			stock = st;
-		}
+    
 
-		void info()
-		{
-			cout << "Item: " << name << endl;
-			cout << "Price: $" << price << endl;
-			cout << "Stock: " << stock << endl;
-		}
+    Drink()
+    {
+        name = "";
+        price = 0.0;
+        stock = 0;
+        volume = 0;
+    }
+
+    Drink(string n, float p, int st, int vol)
+    {
+        name = n;
+        price = p;
+        stock = st;
+        volume = vol;
+    }
+
+    void fillinf(string n, float p, int st, int v)
+    {
+        name = n;
+        price = p;
+        stock = st;
+        volume = v;
+    }
+
+    virtual void info() const
+    {
+        cout << endl;
+        cout << "Item: " << name << endl;
+        cout << "Price: $" << price << endl;
+        cout << "Stock: " << stock << endl;
+        cout << "Volume: " << volume << endl;
+    }
 };
