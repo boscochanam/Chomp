@@ -39,9 +39,9 @@ int main()
 
 	
 	// Reading Login Details from User
-	cout << "Would you like to: " << endl << "1. Login" << endl << "2. Register" << endl; 
+	cout << "Would you like to: " << endl << "1. Login" << endl << "2. Register" << endl;
 	int operation = 1;
-	cin >> operation; 
+	cin >> operation;
 	while (1==1)
 	{
 		if (operation == 1)
@@ -118,6 +118,11 @@ int main()
 			cout << "Registered Successfuly" << endl;
 
 			break;
+		}
+		else
+		{
+			cout << "Invalid Response, please run program again." << endl;
+			exit(0);
 		}
 	}
 	
@@ -251,7 +256,8 @@ int main()
 		}
 		else
 		{
-			cout << "Invalid Response";
+			cout << "Invalid Response, please run program again." <<endl;
+			exit(0);
 		}
 	}
 	string phoneno = "";
