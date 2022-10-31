@@ -49,6 +49,7 @@ static void pop()
 
 static void show()
 {
+	
 	cout << endl << endl;
 	cout << endl << "Your Cart: " << endl;
 	for (int i = 0; i < cart.top + 1; i++)
@@ -56,5 +57,16 @@ static void show()
 		cout << "Item " << i + 1;
 		cout << " " << cart.stck[i] << "  |  $" << cart.prices[i] << endl;
 	}
+	
 	cout << endl;
+}
+
+static void total()
+{
+	float tot = 0;
+	for (int i = 0; i < cart.top + 1; i++)
+	{
+		tot += cart.prices[i];
+	}
+	cout << "Total : " << tot;
 }

@@ -184,7 +184,7 @@ int main()
 		}
 		else if (option == 5)
 		{
-
+			total();
 		}
 		else
 		{
