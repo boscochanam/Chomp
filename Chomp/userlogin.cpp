@@ -8,6 +8,7 @@
 using namespace std;
 
 static int userbalance = 0;
+static int usercount = 0;
 
 static struct UserData
 {
@@ -56,19 +57,19 @@ public:
 
 static vector<UserData> users;
 
-static void userInfo(int count)
+static void userInfo()
 {
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < usercount; i++)
     {
         cout << endl;
         users[i].display();
     }
 }
 
-static int loginVerification(int count, string username, string password)
+static int loginVerification( string username, string password)
 {
     int flag = 0;
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < usercount; i++)
     {
         if (username == users[i].username() && password == users[i].password())
         {
@@ -87,12 +88,32 @@ static int loginVerification(int count, string username, string password)
     }
 }
 
+static int isUnique(string username)
+{
+    int flag = 0;
+    for (int i = 0; i < usercount; i++)
+    {
+        if (username == users[i].username())
+        {
+            flag = 1;
+        }
+    }
+    if (flag == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        cout << "Username already exists!" << endl;
+    }
+}
+
 static void readUserData()
 {
     ifstream inputFile;
     inputFile.open("userdata.csv");
     string line = "";
-    int count = 0;
+    
 
     while (getline(inputFile, line)) {
 
@@ -109,7 +130,7 @@ static void readUserData()
         UserData u(username, password, balance);
         users.push_back(u);
         line = "";
-        count++;
+        usercount++;
     }
 
     //userInfo(count);

@@ -64,7 +64,7 @@ int main()
 				cout << "Enter Password: " << endl;
 				cin >> password;
 
-				operation = loginVerification(3, username, password);
+				operation = loginVerification(username, password);
 				operation;
 				cout << endl;
 			}
@@ -76,9 +76,21 @@ int main()
 		}
 		else if (operation == 2)
 		{
+			int isunique = 0;
 			cout << endl << "Registration Menu:" << endl;
-			cout << "Enter New Username: " << endl;
-			cin >> username;
+
+			while (isunique == 0)
+			{
+				cout << "Enter New Username: " << endl;
+				cin >> username;
+
+				if (isUnique(username) == 1)
+				{
+					break;
+				}
+
+			}
+			
 
 			cout << "Enter New Password: " << endl;
 			cin >> password;
@@ -150,7 +162,15 @@ int main()
 				if (addtocart == f[i].namereturn())
 				{
 					incart = 1;
-					cartprice = f[i].priceret();
+					cout << endl;
+					if (f[i].stockcheck() == 1)
+					{
+						cartprice = f[i].priceret();
+					}
+					else
+					{
+						incart = 2;
+					}
 				}
 			}
 
@@ -159,15 +179,25 @@ int main()
 				if (addtocart == d[i].namereturn())
 				{
 					incart = 1;
-					cartprice = d[i].priceret();
+					cout << endl;
+					if (d[i].stockcheck() == 1)
+					{
+						cartprice = d[i].priceret();
+					}
+					else
+					{
+						incart = 2;
+					}
 				}
 			}
 
-			cout << "Cart Price: " << cartprice << endl;
-
 			if (incart == 1)
+			{	
+				push(addtocart, cartprice);
+			}
+			else if (incart == 2)
 			{
-				push(addtocart,cartprice);
+				cout << "Try again!" << endl;
 			}
 			else
 			{
@@ -181,7 +211,7 @@ int main()
 		else if (option == 4)
 		{
 			show();
-			cout << endl << "Total :  " << total() << endl;
+			cout << endl << "Total :  $" << total() << endl;
 		}
 		else if (option == 5)
 		{

@@ -47,6 +47,20 @@ public:
         return name;
     }
 
+    int stockcheck()
+    {
+        if (stock > 0)
+        {
+            stock--;
+            return 1;
+        }
+        else
+        {
+            cout << "No more stock!" << endl;
+            return 0;
+        }
+    }
+
 };
 
 class Food : public Item
