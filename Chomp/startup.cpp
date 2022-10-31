@@ -133,7 +133,7 @@ int main()
 		cout << "3. Remove item from cart" << endl;
 		cout << "4. View Cart" << endl;
 		cout << "5. Checkout" << endl;
-		cout << " " << endl;
+		cout << "=========================" << endl;
 		cin >> option;
 		if (option == 1)
 		{
@@ -181,10 +181,27 @@ int main()
 		else if (option == 4)
 		{
 			show();
+			cout << endl << "Total :  " << total() << endl;
 		}
 		else if (option == 5)
 		{
-			total();
+			cout << "Your Order Details: " << endl;
+			show();
+			cout << "Total : " << total() << endl;
+
+			cout << "Confirm Payment?"<<endl<<"1. Yes"<<endl<<"2. No"<<endl;
+			int payment;
+			cin >> payment;
+			if (payment == 1 && userbalance >= total())
+			{
+				cout << "Payment Successful!" << endl;
+				cout << "Remaining Balance = $" << userbalance - total() << endl;
+				break;
+			}
+			else
+			{
+				cout << "Not enough balance!" << endl;
+			}
 		}
 		else
 		{

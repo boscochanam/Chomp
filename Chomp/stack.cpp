@@ -61,12 +61,13 @@ static void show()
 	cout << endl;
 }
 
-static void total()
+static float total()
 {
 	float tot = 0;
 	for (int i = 0; i < cart.top + 1; i++)
 	{
 		tot += cart.prices[i];
 	}
-	cout << "Total : " << tot;
+
+	return tot;
 }

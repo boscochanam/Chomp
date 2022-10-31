@@ -7,6 +7,8 @@
 
 using namespace std;
 
+static int userbalance = 0;
+
 static struct UserData
 {
 public:
@@ -73,6 +75,7 @@ static int loginVerification(int count, string username, string password)
             flag = 1;
             cout << "Welcome " << users[i].username() << endl;
             cout << "Balance: $" << users[i].balance() << endl;
+            userbalance = stoi(users[i].balance());
             return 0;
         }
         
