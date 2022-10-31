@@ -130,6 +130,7 @@
     <ClCompile Include="datastuff.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="stack.cpp" />
     <ClCompile Include="startup.cpp" />
     <ClCompile Include="userclass.cpp" />
     <ClCompile Include="userlogin.cpp" />

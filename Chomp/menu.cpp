@@ -37,6 +37,15 @@ public:
         cout << "Stock: " << stock << endl;
     }
 
+    float priceret()
+    {
+        return price;
+    }
+
+    string namereturn()
+    {
+        return name;
+    }
 
 };
 

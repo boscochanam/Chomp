@@ -5,7 +5,9 @@
 #include "login.cpp"
 #include "userlogin.cpp"
 #include "menu.cpp"
+#include "stack.cpp"
 using namespace std;
+
 
 void showmenu(Food f[],Drink d[])
 {
@@ -117,14 +119,21 @@ int main()
 
 	int ordering = 1;
 	int option = 0;
+	cart.top = -1;
+	prices.top = -1;
+	string addtocart;
+	int incart = 0;
+	float cartprice = 0;
+
 	while (ordering == 1)
 	{
 		cout << "==========================" << endl;
 		cout << "What would you like to do?" << endl;
 		cout << "1. See the Menu" << endl;
 		cout << "2. Add item to cart" << endl;
-		cout << "3. View Cart" << endl;
-		cout << "4. Checkout" << endl;
+		cout << "3. Remove item from cart" << endl;
+		cout << "4. View Cart" << endl;
+		cout << "5. Checkout" << endl;
 		cout << " " << endl;
 		cin >> option;
 		if (option == 1)
@@ -133,15 +142,54 @@ int main()
 		}
 		else if (option == 2)
 		{
+			incart = 0;
+			cout << "What would you like to add?" << endl;
+			cin >> addtocart;
 
+			for (i = 0; i < 7; i++)
+			{
+				if (addtocart == f[i].namereturn())
+				{
+					incart = 1;
+					cartprice = f[i].priceret();
+				}
+			}
+
+			for (i = 0; i < 3; i++)
+			{
+				if (addtocart == d[i].namereturn())
+				{
+					incart = 1;
+					cartprice = d[i].priceret();
+				}
+			}
+
+			cout << "Cart Price: " << cartprice << endl;
+
+			if (incart == 1)
+			{
+				push(addtocart,cartprice);
+			}
+			else
+			{
+				cout << "Item does not exist! Try again!"<<endl;
+			}
 		}
 		else if (option == 3)
 		{
-
+			pop();
 		}
 		else if (option == 4)
 		{
+			show();
+		}
+		else if (option == 5)
+		{
 
+		}
+		else
+		{
+			cout << "Invalid Response";
 		}
 	}
 
